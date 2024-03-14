@@ -18,15 +18,15 @@ resource "libvirt_volume" "ubuntu-qcow2" {
     format = "qcow2"
 }
 
+# 3. ----> Data sources renders a template from a template string, which is loaded from external files.
 data "template_file" "user_data" {
     template = file("${path.module}/cloud_init.cfg")
 }
-
 data "template_file" "network_config" {
     template = file("${path.module}/network_config.cfg")
 }
 
-# 3. ----> Use CloudInit to add our ssh-key to the instance
+# 4. ----> Use CloudInit to add our ssh-key to the instance
 resource "libvirt_cloudinit_disk" "commoninit" {
     name = "commoninit.iso"
     user_data = data.template_file.user_data.rendered
@@ -34,7 +34,7 @@ resource "libvirt_cloudinit_disk" "commoninit" {
     pool = "default"
 }
 
-# 4. ----> Create the compute vm
+# 5. ----> Create the compute vm
 resource "libvirt_domain" "domain-ubuntu" {
     name = "ubuntu-terraform"
     memory = "512"
