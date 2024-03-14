@@ -34,7 +34,7 @@ resource "libvirt_cloudinit_disk" "commoninit" {
     pool = "default"
 }
 
-# 4. ----> Create the compute vm
+# 5. ----> Create the compute vm
 resource "libvirt_domain" "domain-ubuntu" {
     name = "ubuntu-terraform"
     memory = "512"
