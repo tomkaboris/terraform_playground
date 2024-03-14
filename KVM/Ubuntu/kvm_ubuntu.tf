@@ -10,7 +10,7 @@ terraform {
     }
 }
 
-# 2. ----> We fetch the smallest ubuntu image from the cloud image repo 
+# 2. ----> Fetch the smallest ubuntu image from the cloud image repo 
 resource "libvirt_volume" "ubuntu-qcow2" {
     name = "ubuntu.qcow2"
     pool = "default"
@@ -18,15 +18,15 @@ resource "libvirt_volume" "ubuntu-qcow2" {
     format = "qcow2"
 }
 
+# 3. ----> Data sources renders a template from a template string, which is loaded from external files.
 data "template_file" "user_data" {
     template = file("${path.module}/cloud_init.cfg")
 }
-
 data "template_file" "network_config" {
     template = file("${path.module}/network_config.cfg")
 }
 
-# 3. ----> Use CloudInit to add our ssh-key to the instance
+# 4. ----> Using CloudInit to add our ssh-key to the instance
 resource "libvirt_cloudinit_disk" "commoninit" {
     name = "commoninit.iso"
     user_data = data.template_file.user_data.rendered
