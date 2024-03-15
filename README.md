@@ -1,4 +1,4 @@
-## 🚩 Table of Contents
+## Table of Contents
 
 - [Tested on](#tested-on)
 - [Requirements](#requirements)
