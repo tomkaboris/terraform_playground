@@ -21,17 +21,17 @@
 No modules.
 
 ## Commands
-Initializing terraform
+Initializing terraform, plan and execute
 ```
 terraform init
 ```
 ```
 terraform plan
 ```
-Execute plan
 ```
 terraform apply
 ```
+
 Find IP of the VM
 ```
 virsh list
