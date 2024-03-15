@@ -28,7 +28,7 @@ terraform plan
 terraform apply
 ```
 
-Find IP of the VM
+Find IP of the VM on KVM
 ```
 virsh list
 virsh dumpxml ubuntu-terraform | grep "mac address" | awk -F\' '{ print $2}'
