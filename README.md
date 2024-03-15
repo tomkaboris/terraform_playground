@@ -3,13 +3,7 @@
 - [Tested on](#-tested-on)
 - [Requirements](#-Requirements)
 - [Modules](#-modules)
-- [Examples](#-examples)
-- [Browser Support](#-browser-support)
-- [Pull Request Steps](#-pull-request-steps)
-- [Contributing](#-contributing)
-- [TOAST UI Family](#-toast-ui-family)
-- [Used By](#-used-by)
-- [License](#-license)
+- [Commands](#-commands)
 
 
 
