@@ -1,9 +1,9 @@
 ## 🚩 Table of Contents
 
-- [Tested on](#-tested-on)
-- [Requirements](#-Requirements)
-- [Modules](#-modules)
-- [Commands](#-commands)
+- [Tested on](#tested-on)
+- [Requirements](#requirements)
+- [Modules](#modules)
+- [Commands](#commands)
 
 
 
