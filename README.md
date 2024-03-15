@@ -24,11 +24,7 @@ No modules.
 Initializing terraform, plan and execute
 ```
 terraform init
-```
-```
 terraform plan
-```
-```
 terraform apply
 ```
 
