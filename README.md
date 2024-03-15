@@ -21,13 +21,24 @@
 No modules.
 
 ## Commands
+Initializing terraform
 ```
 terraform init
 ```
 ```
 terraform plan
 ```
-
+Execute plan
 ```
 terraform apply
+```
+Find IP of the VM
+```
+virsh list
+virsh dumpxml ubuntu-terraform | grep "mac address" | awk -F\' '{ print $2}'
+arp -an | grep 52:54:00:ce:8a:c4 
+```
+SSH to the VM with ssh key (note: prior to use key remove all '#' on the beginning of all lines)
+```
+ssh ubuntu@ip.add.re.ss -i ssh_key
 ```
