@@ -36,5 +36,5 @@ arp -an | grep mac_address
 ```
 SSH to the VM with ssh key (note: prior to use key remove all '#' on the beginning of all lines)
 ```
-ssh ubuntu@ip.add.re.ss -i ssh_key
+ssh ubuntu@ip.add.re.ss -i my_ssh_key
 ```
