@@ -17,7 +17,7 @@ provider "libvirt" {
 resource "libvirt_volume" "ubuntu-qcow2" {
   name   = "ubuntu.qcow2"
   pool   = "default"
-  source = "https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img"
+  source = "http://cloud-images.ubuntu.com/releases/focal/release-20210429/ubuntu-20.04-server-cloudimg-amd64.img"
   format = "qcow2"
 }
 
@@ -39,7 +39,7 @@ resource "libvirt_cloudinit_disk" "commoninit" {
 # Create the machine
 resource "libvirt_domain" "domain-ubuntu" {
   name   = "ubuntu-terraform"
-  memory = "512"
+  memory = "1024"
   vcpu   = 1
 
   cloudinit = libvirt_cloudinit_disk.commoninit.id
@@ -57,11 +57,11 @@ resource "libvirt_domain" "domain-ubuntu" {
     target_type = "serial"
   }
 
-  console {
-    type        = "pty"
-    target_type = "virtio"
-    target_port = "1"
-  }
+  #console {
+  #  type        = "pty"
+  #  target_type = "virtio"
+  #  target_port = "1"
+  #}
 
   disk {
     volume_id = libvirt_volume.ubuntu-qcow2.id
@@ -72,4 +72,8 @@ resource "libvirt_domain" "domain-ubuntu" {
     listen_type = "address"
     autoport    = true
   }
+}
+output "ips" {
+  # show IP, run 'terraform refresh' if not populated
+  value = libvirt_domain.domain-ubuntu.*.network_interface.0.addresses
 }
