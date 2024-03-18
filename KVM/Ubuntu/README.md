@@ -38,3 +38,33 @@ SSH to the VM with ssh key (note: prior to use key remove all '#' on the beginni
 ```
 ssh ubuntu@ip.add.re.ss -i my_ssh_key
 ```
+
+## Increse VM disk size
+When is VM in running state check the name of it with command:
+```
+sudo virsh list
+```
+Shutdown VM with command:
+```
+sudo virsh shutdown ubuntu-terraform
+```
+Check path of VM storage
+```
+sudo virsh domblklist ubuntu-terraform
+```
+Get information of the storage
+```
+sudo qemu-img info /var/lib/libvirt/images/ubuntu.qcow2
+```
+Extend VM disk [remove all snapshots for that VM]
+```
+sudo qemu-img resize /var/lib/libvirt/images/ubuntu.qcow2 +10G
+```
+Start VM
+```
+sudo virsh start rhel8
+```
+Check the block size
+```
+sudo virsh blockresize rhel8 /var/lib/libvirt/images/ubuntu.qcow2
+```
