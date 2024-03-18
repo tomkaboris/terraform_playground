@@ -39,7 +39,7 @@ SSH to the VM with ssh key (note: prior to use key remove all '#' on the beginni
 ssh ubuntu@ip.add.re.ss -i my_ssh_key
 ```
 
-## Increse VM disk size
+## Increase VM disk size
 When is VM in running state check the name of it with command:
 ```
 sudo virsh list
