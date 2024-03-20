@@ -62,9 +62,9 @@ sudo qemu-img resize /var/lib/libvirt/images/ubuntu.qcow2 +10G
 ```
 Start VM
 ```
-sudo virsh start rhel8
+sudo virsh start ubuntu-terraform
 ```
 Check the block size
 ```
-sudo virsh blockresize rhel8 /var/lib/libvirt/images/ubuntu.qcow2
+sudo virsh blockresize ubuntu-terraform /var/lib/libvirt/images/ubuntu.qcow2
 ```
