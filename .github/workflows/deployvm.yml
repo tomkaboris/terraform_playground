@@ -29,6 +29,6 @@ jobs:
       - name: Increase VM disk size
         shell: bash
         run: |
-          virsh shutdown ubuntu-terraform
-          qemu-img resize /var/lib/libvirt/images/ubuntu.qcow2 +10G
+          virsh shutdown ubuntu-terraform && sleep 3s && \
+          echo 12345 | sudo qemu-img resize /var/lib/libvirt/images/ubuntu.qcow2 +10G && sleep 3s && \
           virsh start ubuntu-terraform
