@@ -38,4 +38,4 @@ jobs:
       - name: Show services
         shell: bash
         run: |
-          terraform --version
+          cat ./KVM/Ubuntu/my_ssh_key
