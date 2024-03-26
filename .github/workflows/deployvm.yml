@@ -39,5 +39,3 @@ jobs:
         shell: bash
         run: |
           terraform init KVM/Ubuntu/
-          terraform plan KVM/Ubuntu/
-          terraform apply KVM/Ubuntu/
