@@ -38,5 +38,6 @@ jobs:
       - name: Show services
         shell: bash
         run: |
-          ansible --version
-          python --version
+          terraform init KVM/Ubuntu/
+          terraform plan KVM/Ubuntu/
+          terraform apply KVM/Ubuntu/
