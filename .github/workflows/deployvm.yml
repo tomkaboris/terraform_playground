@@ -25,3 +25,10 @@ jobs:
           cd ./KVM/Ubuntu/
           terraform init
           terraform apply -auto-approve
+
+      - name: Increase VM disk size
+        shell: bash
+        run: |
+          virsh shutdown ubuntu-terraform
+          qemu-img resize /var/lib/libvirt/images/ubuntu.qcow2 +10G
+          virsh start ubuntu-terraform
