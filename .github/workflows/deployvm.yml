@@ -38,4 +38,4 @@ jobs:
       - name: Show services
         shell: bash
         run: |
-          terraform init KVM/Ubuntu/
+          terraform --version
